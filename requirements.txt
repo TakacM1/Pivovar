@@ -1,1 +1,5 @@
-
+django>=4.2,<5.0
+gunicorn
+djangorestframework
+psycopg2-binary
+whitenoise
