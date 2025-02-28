@@ -1,0 +1,1 @@
+raz tu niečo definitivne napišem

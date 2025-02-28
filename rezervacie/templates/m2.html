@@ -1,0 +1,144 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pivovar</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      
+        .custom-rounded {
+          border-radius: 40px;
+          border: 2px solid #24b30e;
+        }
+
+        .custom-input {
+          background-color: #000000;
+          color: rgb(255, 255, 255);
+          border: 1px solid #555;
+          border-radius: 10px;
+          padding: 10px;
+        }
+
+        .custom-input::placeholder {
+          color: #ffffff;
+        }
+
+        body {
+              background-image: url("{% static 'images/background.jpg' %}");
+              background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
+              height: 100vh;
+              margin: 0;
+              padding: 0;
+        } 
+
+        .container1 {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+.custom-box {
+            padding: 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            background-color: #000000;
+            color: white;
+            border-radius: 40px;
+        }
+  </style>
+
+</head>
+<body style="background-color: #ffc0ea;">
+
+<div id="age-popup">
+  <div class="popup-content">
+      <h1>VSTUPOM NA TÚTO STRÁNKU POTVRDZUJETE, ŽE MÁTE VIAC AKO 18 ROKOV.</h1>
+      <button class="yes" onclick="verifyAge(true)">Súhlasím</button>
+      <button class="no" onclick="verifyAge(false)">Odísť</button>
+  </div>
+</div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">--PIVOVAR_LOGO--</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/ponuka/">Aktuálna ponuka</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/onas/">O nás</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/rezervacie/">Rezervácie <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/pivopedia/">Pivopedia</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    
+
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="custom-box">
+              <h1 class="mb-4">KUCHAJDA</h1>
+              <form action="{% url 'submit_form' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                  <input type="text" id="fname" class="form-control custom-input" placeholder="Meno" name="fname" required>
+                </div>
+                <div class="form-group">
+                  <input type="email" id="email" class="form-control custom-input" placeholder="Email" name="email" required>
+                </div>
+                <div class="form-group">
+                  <input type="date" id="date" class="form-control custom-input" name="date" required>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control custom-input" placeholder="Poznámky, počet ľudí, čas..." id="poznamka" name="poznamka">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Odoslať</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          if (!localStorage.getItem("ageVerified")) {
+      document.getElementById("age-popup").style.display = "flex";
+          }
+      });
+
+      function verifyAge(isAdult) {
+      if (isAdult) {
+          localStorage.setItem("ageVerified", "true");
+          document.getElementById("age-popup").style.display = "none";
+      } else {
+          window.location.href = "https://www.google.com";
+      }
+      }
+  </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

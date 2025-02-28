@@ -1,0 +1,200 @@
+
+/*age popup*/
+#age-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.popup-content {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    width: 400px;
+}
+.popup-content h1 {
+    font-size: 24px;
+}
+.popup-content button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+.yes {
+    background: black;
+    color: white;
+}
+.no {
+    background: white;
+    color: black;
+    border: 1px solid black;
+}
+
+/*bodycko nefunguje, rovnako ako všetko kde je url na obrazok, po 2 hodinach neviem, je to tu len na to aby som to prekopiroval kde mi treba*/
+
+body {
+    background-image: url("{% static 'images/background.jpg' %}"); /* Path to your image */
+    background-size: cover; /* Ensures it covers the entire screen */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repeating */
+    background-color: black;
+    height: 100vh; /* Ensures full height */
+    margin: 0;
+    padding: 0;
+} 
+
+/*rezervacie m1 m2 prisla*/
+
+.container1 {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+button {
+    margin: 15px;
+    padding: 15px 30px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.m1-btn { background: #ff4400; }
+.m2-btn { background: #0082ec; }
+
+        /* Full-page split layout */
+/* Full-page split layout */
+.split-container {
+display: flex;
+height: 100vh;
+}
+
+/* Each split section */
+.split {
+flex: 1;
+position: relative;
+transition: filter 0.3s ease-in-out;
+background-size: cover;
+background-position: center;
+filter: grayscale(100%); /* Initially gray */
+}
+
+/* Background images */
+
+
+/* Remove grayscale when hovering over the buttons */
+.m1-btn:hover ~ .left,
+.left:hover {
+filter: grayscale(0%);
+}
+
+.m2-btn:hover ~ .right,
+.right:hover {
+filter: grayscale(0%);
+}
+
+/* Button Container */
+.button-container {
+position: absolute;
+width: 100%;
+bottom: 20px;
+text-align: center;
+}
+
+/* Button Styling */
+.split button {
+padding: 15px 30px;
+font-size: 20px;
+border: none;
+cursor: pointer;
+border-radius: 5px;
+color: white;
+}
+
+.m1-btn { background: #ff4400; }
+.m2-btn { background: #0082ec; }
+
+
+/*m1 m2*/
+
+.custom-rounded {
+border-radius: 40px; /* More rounded corners */
+    border: 2px solid #24b30e; /* Dark grey border */
+  }
+
+.custom-input {
+    background-color: #000000; /* Dark Gray */
+    color: rgb(255, 255, 255); /* White Text */
+    border: 1px solid #555; /* Slight Border */
+    border-radius: 10px; /* Rounded Edges */
+    padding: 10px;
+  }
+.custom-input::placeholder {
+    color: #ffffff; /* Light Gray Placeholder */
+  }
+
+
+
+  /*prisla*/
+
+        /* Heading style with light text and dark border */
+        .custom-title { 
+            color: white;
+    text-shadow: 
+        -2px -2px 0 black,  
+         2px -2px 0 black,
+        -2px  2px 0 black,
+         2px  2px 0 black;
+    font-weight: bold;
+        }
+
+        /* Center the content */
+        .container {
+            text-align: center;
+            margin-top: 50px;
+
+        }
+
+        /* Button styling */
+        .custom-button {
+            background: #000000;
+            color: white;
+            padding: 15px 30px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .custom-button:hover {
+            background: #cc3700;
+        }
+  
+        .containerMO {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .custom-box {
+            padding: 1.5rem; /* p-4 in Bootstrap */
+            border: 2px solid rgba(255, 255, 255, 0.2); /* Soft white border */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* shadow-lg */
+            text-align: center;
+            background-color: #000000; /* bg-dark */
+            color: white; /* text-white */
+            border-radius: 40px; /* More rounded corners */
+        }

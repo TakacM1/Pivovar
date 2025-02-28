@@ -1,0 +1,166 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pivovar</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .map-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            margin-bottom: 1rem; /* Space between iframes */
+        }
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 15px;
+        }
+        
+        
+        .custom-title {
+    color: white;
+    text-shadow: 
+        -2px -2px 0 black,  
+         2px -2px 0 black,
+        -2px  2px 0 black,
+         2px  2px 0 black;
+    font-weight: bold;
+        }
+body {
+    background-image: url("{% static 'images/background.jpg' %}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: black;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+} 
+.container1 {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+    </style>
+
+</head>
+<body style="background-color: #000000;">
+   
+    <div id="age-popup">
+        <div class="popup-content">
+            <h1>VSTUPOM NA TÚTO STRÁNKU POTVRDZUJETE, ŽE MÁTE VIAC AKO 18 ROKOV.</h1>
+            <button class="yes" onclick="verifyAge(true)">Súhlasím</button>
+            <button class="no" onclick="verifyAge(false)">Odísť</button>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">--PIVOVAR_LOGO--</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+
+
+            <li class="nav-item">
+              <a class="nav-link" href="/ponuka/">Aktuálna ponuka</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/onas/">O nás <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/rezervacie/">Rezervácie </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/pivopedia/">Pivopedia</a>
+            </li>
+            
+          </ul>
+
+        </div>
+      </nav>
+
+      
+    <div class="container">
+        <div class="container1">
+        <div class="d-flex justify-content-center">
+            <div class="text-center">
+                <h1 class="custom-title">O nás</h1><br>
+                <p class="custom-title">Lorem ipsum odor amet, consectetuer adipiscing elit. Justo nisi mattis cubilia tristique torquent nisl. Ultrices luctus himenaeos nam convallis scelerisque quisque interdum adipiscing. Natoque diam ut elementum suspendisse nisi scelerisque. Adipiscing dui facilisi orci lacinia feugiat sollicitudin. Platea suspendisse posuere rhoncus morbi interdum sapien duis himenaeos. Luctus ultrices nisi fusce urna ullamcorper. Maecenas volutpat scelerisque sodales litora porttitor montes!</p>
+    
+            </div>
+        </div>
+     
+    
+
+        <h1 class="mb-4 text-center custom-title">Kde nás nájst</h1>
+        <div class="row pb-4">
+
+            <div class="col-md-6 mx-auto pb-5">
+                <h3 class="text-center custom-title">Draždiak</h3>
+                <div class="shadow-lg map-container">
+
+                    <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5328.647441984973!2d17.107502944973813!3d48.103990649487805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c89b75a453da3%3A0xc07399c942dae099!2zVmXEvmvDvSBEcmHFvmRpYWs!5e0!3m2!1ssk!2ssk!4v1740484087371!5m2!1ssk!2ssk" 
+                        allowfullscreen 
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+            <div class="col-md-6 mx-auto pb-5">
+                <h3 class="text-center custom-title">Kuchajda</h3>        
+                <div class="shadow-lg map-container">
+
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2660.9231206655536!2d17.142313025919755!3d48.16956294893452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c8ec69b9573b1%3A0xc577f37890fe575!2sKuchajda!5e0!3m2!1ssk!2ssk!4v1740484252326!5m2!1ssk!2ssk"                        
+                        allowfullscreen 
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div> 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (!localStorage.getItem("ageVerified")) {
+        document.getElementById("age-popup").style.display = "flex";
+            }
+        });
+
+        function verifyAge(isAdult) {
+        if (isAdult) {
+            localStorage.setItem("ageVerified", "true");
+            document.getElementById("age-popup").style.display = "none";
+        } else {
+            window.location.href = "https://www.google.com"; // Redirect underage users
+        }
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pivovar</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      
+body {
+    background-image: url("{% static 'images/background.jpg' %}"); /* Path to your image */
+    background-size: cover; /* Ensures it covers the entire screen */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repeating */
+    background-color: black;
+    height: 100vh; /* Ensures full height */
+    margin: 0;
+    padding: 0;
+} 
+
+    .table-custom-dark {
+        background-color: #343a40; /* Bootstrap thead-dark background color */
+        color: #fff; /* Text color for better contrast */
+    }
+    .table-custom-dark td {
+        border-color: #454d55; /* Optional: Border color to match thead-dark */
+    }
+
+    .container1 {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+  </style>
+
+</head>
+<body style="background-color: #000000;">
+  <!--
+  <div>
+    <h1>TS</h1>
+  </div>    
+-->   
+  <div id="age-popup">
+    <div class="popup-content">
+        <h1>VSTUPOM NA TÚTO STRÁNKU POTVRDZUJETE, ŽE MÁTE VIAC AKO 18 ROKOV.</h1>
+        <button class="yes" onclick="verifyAge(true)">Súhlasím</button>
+        <button class="no" onclick="verifyAge(false)">Odísť</button>
+    </div>
+  </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">--PIVOVAR_LOGO--</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/ponuka/">Aktuálna ponuka <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/onas/">O nás</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/rezervacie/">Rezervácie </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/pivopedia/">Pivopedia</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+  
+  <div class="container">
+    <div class="container1">
+    <h1 class="mb-4 text-center custom-title">Draždiak</h1>
+    
+    <!-- Add table-responsive class to make the table responsive -->
+    <div class="table-responsive">
+        <table class="table table-bordered shadow-lg">
+            <thead class="thead-dark"> <!-- Dark header for better vissibility -->
+                <tr>
+                    <th>#</th>
+                    <th>Pôvod</th>
+                    <th>Názov piva</th>
+                    <th>Štýl</th>
+                    <th>Plato</th>
+                    <th>Alko %</th>
+                    <th>(0.5l)</th>
+                    <th>(0.4l)</th>
+                    <th>(0.3l)</th>
+                    <th>(0.2l)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for V in Vyd %}
+                <tr class="table-custom-dark">
+                    <td>{{ forloop.counter }}</td> <!-- Added a counter for the row numbers -->
+                    <td>{{ V.povod }}</td>
+                    <td>{{ V.nazov }}</td>
+                    <td>{{ V.styl }}</td>
+                    <td>{{ V.plato }}</td>
+                    <td>{{ V.alkohol }}</td>
+                    <td>{{ V.price_05l }}</td>
+                    <td>{{ V.price_04l }}</td>
+                    <td>{{ V.price_03l }}</td>
+                    <td>{{ V.price_02l }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+  </div>
+
+    <h1 class="mb-4 text-center custom-title">Kuchajda</h1>
+    
+    <!-- Add table-responsive class to make the table responsive -->
+    <div class="table-responsive">
+        <table class="table table-bordered shadow-lg">
+            <thead class="thead-dark"> <!-- Dark header for better vissibility -->
+                <tr>
+                    <th>#</th>
+                    <th>Pôvod</th>
+                    <th>Názov piva</th>
+                    <th>Štýl</th>
+                    <th>Plato</th>
+                    <th>Alko %</th>
+                    <th>(0.5l)</th>
+                    <th>(0.4l)</th>
+                    <th>(0.3l)</th>
+                    <th>(0.2l)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for R in Roz %}
+                <tr class="table-custom-dark">
+                    <td>{{ forloop.counter }}</td> <!-- Added a counter for the row numbers -->
+                    <td>{{ R.povod }}</td>
+                    <td>{{ R.nazov }}</td>
+                    <td>{{ R.styl }}</td>
+                    <td>{{ R.plato }}</td>
+                    <td>{{ R.alkohol }}</td>
+                    <td>{{ R.price_05l }}</td>
+                    <td>{{ R.price_04l }}</td>
+                    <td>{{ R.price_03l }}</td>
+                    <td>{{ R.price_02l }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+    <!--
+    <div>
+        <img src="{% static 'css/peng.png' %}" alt="pes" width="280">
+        <br>
+        "peš"
+    </div>
+    -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          if (!localStorage.getItem("ageVerified")) {
+      document.getElementById("age-popup").style.display = "flex";
+          }
+      });
+
+      function verifyAge(isAdult) {
+      if (isAdult) {
+          localStorage.setItem("ageVerified", "true");
+          document.getElementById("age-popup").style.display = "none";
+      } else {
+          window.location.href = "https://www.google.com"; // Redirect underage users
+      }
+      }
+  </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

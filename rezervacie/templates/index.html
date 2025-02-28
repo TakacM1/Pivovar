@@ -1,0 +1,113 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pivovar</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+body {
+    background-image: url("{% static 'images/background.jpg' %}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: black;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+      .left {
+      background-image: url("{% static 'images/m1.jpg' %}");
+      }
+      
+      .right {
+      background-image: url("{% static 'images/m2.jpg' %}");
+      }
+    </style>
+
+</head>
+<body style="background-color: #ffc0ea;">
+
+<div id="age-popup">
+  <div class="popup-content">
+      <h1>VSTUPOM NA TÚTO STRÁNKU POTVRDZUJETE, ŽE MÁTE VIAC AKO 18 ROKOV.</h1>
+      <button class="yes" onclick="verifyAge(true)">Súhlasím</button>
+      <button class="no" onclick="verifyAge(false)">Odísť</button>
+  </div>
+</div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">--PIVOVAR_LOGO--</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/ponuka/">Aktuálna ponuka</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/onas/">O nás</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/rezervacie/">Rezervácie <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/pivopedia/">Pivopedia</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    <div class="split-container">
+      <!-- Left -->
+      <div class="split left">
+
+          <div class="button-container">
+            <a href="{% url 'm1' %}">
+                  <button class="m1-btn">DRAŽDIAK</button>
+              </a>
+          </div>
+      </div>
+
+      <!-- Right  -->
+      <div class="split right">
+          <div class="button-container">
+              <a href="{% url 'm2' %}">
+                  <button class="m2-btn">KUCHAJDA</button>
+              </a>
+          </div>
+      </div>
+  </div>
+
+
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          if (!localStorage.getItem("ageVerified")) {
+      document.getElementById("age-popup").style.display = "flex";
+          }
+      });
+
+      function verifyAge(isAdult) {
+      if (isAdult) {
+          localStorage.setItem("ageVerified", "true");
+          document.getElementById("age-popup").style.display = "none";
+      } else {
+          window.location.href = "https://www.google.com"; // Redirect underage users
+      }
+      }
+  </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

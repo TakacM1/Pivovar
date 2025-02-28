@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pivovar</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+
+        .custom-rounded {
+          border-radius: 40px;
+          border: 2px solid #24b30e;
+        }
+
+        .custom-input {
+          background-color: #000000;
+          color: rgb(255, 255, 255);
+          border: 1px solid #555;
+          border-radius: 10px;
+          padding: 10px;
+        }
+
+        .custom-input::placeholder {
+          color: #ffffff;
+        }
+        
+        body {
+            background-image: url("{% static 'images/background.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: black;
+            height: 100vh; 
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .custom-title {
+            color: white;
+        text-shadow: 
+        -2px -2px 0 black,  
+         2px -2px 0 black,
+        -2px  2px 0 black,
+         2px  2px 0 black;
+        font-weight: bold;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .custom-button {
+            background: #000000;
+            color: white;
+            padding: 15px 30px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .custom-button:hover {
+            background: #cc3700;
+        }
+
+    </style>
+
+</head>
+
+<body style="background-color: #ffc0ea;">
+    <div class="d-flex justify-content-center align-items-center vh-100">
+
+        <div class="col-sm-4">
+            <div class="p-2 border shadow-lg text-center bg-dark text-white custom-rounded">
+                <div class="container">
+                    <div>
+                        <br>
+                        <p>Vaša objednávka nám prišla</p>
+                    </div>
+
+                    <div>
+                        <a href="{% url 'index' %}">
+                            <button class="custom-button">Späť</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
